@@ -4,6 +4,9 @@ import React, {Component} from 'react';
 import styles from './Statistic.module.css';
 
 export default class Statistic extends Component {
+  static defaultProps = {
+    initialValue: 0,
+  };
   state = {
     good: this.props.initialValue,
     neutral: this.props.initialValue,
