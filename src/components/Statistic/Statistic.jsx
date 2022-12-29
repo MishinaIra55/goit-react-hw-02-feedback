@@ -5,11 +5,11 @@ import styles from './Statistic.module.css';
 
 export default class Statistic extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0
+    good: this.props.initialValue,
+    neutral: this.props.initialValue,
+    bad: this.props.initialValue
   }
-
+//метод который обновляет состояние
   increaseGood = () => {
     this.setState( prevState => {
       return {
@@ -35,7 +35,7 @@ export default class Statistic extends Component {
     return (
       <div>
        <h1 className={styles.title}> Please leave feedback</h1>
-        <button type='button' className={styles.good} onClick={this.increaseGood}>Good</button>
+        <button type='button' onClick={this.increaseGood}>Good</button>
         <button type='button' onClick={this.increaseNeutral}>Neutral</button>
         <button type='button' onClick={this.increaseBad}>Bad</button>
         <h2 className={styles.title}>Statistics</h2>

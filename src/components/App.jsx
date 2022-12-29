@@ -12,7 +12,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-     <Statistic/>
+     <Statistic initialValue={0}/>
     </div>
   );
 };
