@@ -11,22 +11,25 @@ export default class Statistic extends Component {
   }
 
   increaseGood = () => {
-    this.setState({
-        good: 3,
+    this.setState( prevState => {
+      return {
+        good: prevState.good + 1,
       }
-      );
+      });
   };
   increaseNeutral = () => {
-    this.setState({
-      neutral: 2,
-      }
-    );
+    this.setState(prevState => {
+        return {
+          neutral: prevState.neutral + 1,
+        }
+      });
   };
   increaseBad = () => {
-    this.setState({
-      bad: 2,
+    this.setState(prevState => {
+      return {
+        bad: prevState.bad + 1,
       }
-    );
+    })
   };
   render() {
     return (
