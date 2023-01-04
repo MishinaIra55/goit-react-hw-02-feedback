@@ -1,8 +1,10 @@
-import Statistics from './Statistic/Statistic';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 
 import React, { Component } from 'react';
-import styles from './Statistic/Statistic.module.css';
+// import styles from './Statistic/Statistic.module.css';
+
+import Statistics from './Statistic/Statistic';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Section from './Section/Section';
 
 export  class App extends Component {
 
@@ -22,10 +24,7 @@ export  class App extends Component {
   }
 
   countTotalFeedback = () => {
-    const total = this.state.good + this.state.neutral + this.state.bad;
-
-    return total;
-
+    return this.state.good + this.state.neutral + this.state.bad;
   }
   countPositiveFeedbackPercentage = () => {
     if(this.state.good === 0) {
@@ -45,11 +44,15 @@ export  class App extends Component {
 
     return (
       <div>
-        <h1 className={styles.title}> Please leave feedback</h1>
-        <FeedbackOptions
-          options={this.state}
-          onLeaveFeedback={this.onLeaveFeedback}/>
-        <h2 className={styles.title}>Statistics</h2>
+        <Section title='Please leave feedback'>
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.onLeaveFeedback}
+          />
+        </Section>
+
+
+        <Section title='Statistics'>
         <Statistics
           good={good}
           neutral={neutral}
@@ -57,6 +60,7 @@ export  class App extends Component {
           total={total}
           totalPositive={totalPositive}
           />
+          </Section>
 
       </div>
     )
