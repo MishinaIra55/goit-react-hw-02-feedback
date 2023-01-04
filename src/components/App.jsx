@@ -12,33 +12,11 @@ export  class App extends Component {
     neutral: 0,
     bad: 0
   }
-//метод который обновляет состояние
-//   increaseGood = () => {
-//     this.setState( prevState => {
-//       return {
-//         good: prevState.good + 1,
-//       }
-//     });
-//   };
-//   increaseNeutral = () => {
-//     this.setState(prevState => {
-//       return {
-//         neutral: prevState.neutral + 1,
-//       }
-//     });
-//   };
-//   increaseBad = () => {
-//     this.setState(prevState => {
-//       return {
-//         bad: prevState.bad + 1,
-//       }
-//     })
-//   };
-  onLeaveFeedback = () => {
+
+  onLeaveFeedback = (name) => {
     this.setState(prevState => {
       return {
-        good: prevState.good + 1,
-
+        [name]: prevState[name] + 1,
       }
     })
   }
