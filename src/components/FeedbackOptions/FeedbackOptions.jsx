@@ -9,7 +9,10 @@ const FeedbackOptions = ( {options, onLeaveFeedback} ) => {
     <div>
       {buttonsNames.map(buttonName => {
         return(
-          <button className={styles.button} key={buttonName} type='button' onClick={()=> onLeaveFeedback(buttonName)}>{buttonName}</button>
+          <button
+            className={styles.button}
+            key={buttonName} type='button'
+            onClick={()=> onLeaveFeedback(buttonName)}>{buttonName}</button>
         )
       })
       }
@@ -17,12 +20,9 @@ const FeedbackOptions = ( {options, onLeaveFeedback} ) => {
   )
 }
 
-
-
 export default FeedbackOptions;
 
 FeedbackOptions.protypes = {
   options:PropTypes.object,
   onLeaveFeedback:PropTypes.func,
-
 }

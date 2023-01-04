@@ -11,11 +11,9 @@ const Statistics = ({ good, neutral, bad, total, totalPositive }) => (
     <span>Bad: {bad}</span>
     <span>Total: {total}</span>
     <span>Positive feedback: {totalPositive}%</span>
-
   </div>
 
 );
-
 export default Statistics;
 
 Statistics.propTypes = {
