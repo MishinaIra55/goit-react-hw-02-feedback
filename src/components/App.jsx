@@ -1,39 +1,16 @@
 import Statistics from './Statistic/Statistic';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 
-import React, {Component} from 'react';
-import styles from './Statistic/Statistic.module.css'
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-    <Feedback initialValue={0}/>
-    </div>
-  );
-};
+import React, { Component } from 'react';
+import styles from './Statistic/Statistic.module.css';
 
+export  class App extends Component {
 
-
-
-
-
-export  class Feedback extends Component {
-  static defaultProps = {
-    initialValue: 0,
-  };
 
   state = {
-    good: this.props.initialValue,
-    neutral: this.props.initialValue,
-    bad: this.props.initialValue
+    good: 0,
+    neutral: 0,
+    bad: 0
   }
 //метод который обновляет состояние
   increaseGood = () => {
@@ -57,7 +34,29 @@ export  class Feedback extends Component {
       }
     })
   };
+
+  countTotalFeedback = () => {
+    const total = this.state.good + this.state.neutral + this.state.bad;
+
+    return total;
+
+  }
+  countPositiveFeedbackPercentage = () => {
+    if(this.state.good === 0) {
+      return 0;
+    }
+
+    return Math.ceil(Number((this.state.good * 100) / this.countTotalFeedback()));
+  }
+
   render() {
+    const { good, neutral, bad } = this.state;
+
+    const total = this.countTotalFeedback();
+    const totalPositive = this.countPositiveFeedbackPercentage();
+
+
+
     return (
       <div>
         <h1 className={styles.title}> Please leave feedback</h1>
@@ -67,9 +66,11 @@ export  class Feedback extends Component {
           increaseBad={this.increaseBad}/>
         <h2 className={styles.title}>Statistics</h2>
         <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          total={total}
+          totalPositive={totalPositive}
           />
 
       </div>

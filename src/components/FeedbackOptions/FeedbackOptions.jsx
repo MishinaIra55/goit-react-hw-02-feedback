@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({increaseGood, increaseNeutral, increaseBad }) => (
   <div>
@@ -10,3 +11,8 @@ const FeedbackOptions = ({increaseGood, increaseNeutral, increaseBad }) => (
 );
 export default FeedbackOptions;
 
+FeedbackOptions.protypes = {
+  increaseGood:PropTypes.func,
+  increaseNeutral:PropTypes.func,
+  increaseBad:PropTypes.func,
+}
