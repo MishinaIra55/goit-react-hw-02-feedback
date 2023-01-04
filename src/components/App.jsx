@@ -13,27 +13,35 @@ export  class App extends Component {
     bad: 0
   }
 //метод который обновляет состояние
-  increaseGood = () => {
-    this.setState( prevState => {
+//   increaseGood = () => {
+//     this.setState( prevState => {
+//       return {
+//         good: prevState.good + 1,
+//       }
+//     });
+//   };
+//   increaseNeutral = () => {
+//     this.setState(prevState => {
+//       return {
+//         neutral: prevState.neutral + 1,
+//       }
+//     });
+//   };
+//   increaseBad = () => {
+//     this.setState(prevState => {
+//       return {
+//         bad: prevState.bad + 1,
+//       }
+//     })
+//   };
+  onLeaveFeedback = () => {
+    this.setState(prevState => {
       return {
         good: prevState.good + 1,
-      }
-    });
-  };
-  increaseNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      }
-    });
-  };
-  increaseBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+
       }
     })
-  };
+  }
 
   countTotalFeedback = () => {
     const total = this.state.good + this.state.neutral + this.state.bad;
@@ -61,9 +69,8 @@ export  class App extends Component {
       <div>
         <h1 className={styles.title}> Please leave feedback</h1>
         <FeedbackOptions
-          increaseGood={this.increaseGood}
-          increaseNeutral={this.increaseNeutral}
-          increaseBad={this.increaseBad}/>
+          options={this.state}
+          onLeaveFeedback={this.onLeaveFeedback}/>
         <h2 className={styles.title}>Statistics</h2>
         <Statistics
           good={good}
