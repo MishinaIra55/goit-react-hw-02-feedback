@@ -43,11 +43,13 @@ export  class App extends Component {
 
     const renderNotification = this.countTotalFeedback();
 
+    const buttonsNames = (Object.keys(this.state));
+
     return (
       <div>
         <Section title='Please leave feedback'>
           <FeedbackOptions
-            options={this.state}
+            options={buttonsNames}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>

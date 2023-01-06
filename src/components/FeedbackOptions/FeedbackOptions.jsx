@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './FeedbackOptions.module.css'
 
 const FeedbackOptions = ( {options, onLeaveFeedback} ) => {
-  const buttonsNames = (Object.keys(options));
   return(
     <div>
-      {buttonsNames.map(buttonName => {
+      {options.map(buttonName => {
         return(
           <button
             className={styles.button}
