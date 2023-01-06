@@ -10,5 +10,5 @@ export default Notification;
 
 
 Notification.proTypes = {
-  message:PropTypes.string,
+  message:PropTypes.string.isRequired,
 }
